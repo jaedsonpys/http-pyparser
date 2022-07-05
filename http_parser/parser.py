@@ -14,3 +14,8 @@ class HTTPData(object):
         self.body = body
         self.headers = headers
         self.cookies = cookies
+
+
+class HTTPParser(object):
+    def __init__(self) -> None:
+        pass
