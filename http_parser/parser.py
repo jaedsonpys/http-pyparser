@@ -10,4 +10,4 @@ class HTTPData(object):
 
 class HTTPParser(object):
     def __init__(self) -> None:
-        pass
+        self.result = HTTPData()
