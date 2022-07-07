@@ -84,5 +84,10 @@ class HTTPParser(object):
         self.result.path = path
         self.result.version = version
 
-        self._parser_headers(msg_parts)
+        headers = self._parser_headers(msg_parts)
+        
+        self.result.host = headers.get('Host')
+        self.result.user_agent = headers.get('User-Agent')
+        self.result.accept = headers.get('Accept')
+
         return self.result
