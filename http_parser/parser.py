@@ -15,6 +15,28 @@ class HTTPParser(object):
     def __init__(self) -> None:
         self.result = HTTPData()
 
+    def _parser_headers(self, headers: str) -> None:
+        parsed_headers = {}
+
+        for header in headers:
+            if header:
+                name, value = header.split(':', maxsplit=1)
+                value = value.strip()
+
+                if ';' in value and ',' in value:
+                    sub_values = value.split(',')
+                    filtered_values = []
+
+                    for sv in sub_values:
+                        sv = sv.strip()
+                        filtered_values.append(sv)
+
+                    parsed_headers[name] = filtered_values
+                else:
+                    parsed_headers[name] = value
+
+        return parsed_headers
+
     def parser(self, http_message: str) -> HTTPData:
         """Parser a HTTP request message.
 
@@ -43,4 +65,5 @@ class HTTPParser(object):
         self.result.path = path
         self.result.version = version
 
+        self._parser_headers(msg_parts)
         return self.result
