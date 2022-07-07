@@ -1,0 +1,2 @@
+argeasy==1.1.1
+bupytest==0.3.1
