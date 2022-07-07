@@ -1,4 +1,5 @@
 from . import exceptions
+from typing import Union
 
 
 class HTTPData(object):
@@ -24,6 +25,27 @@ class HTTPData(object):
 class HTTPParser(object):
     def __init__(self) -> None:
         self.result = HTTPData()
+
+    def _parser_query_string(self, path: str) -> Union[dict, None]:
+        parsed_query = {}
+
+        try:
+            query_start = path.index('?')
+        except ValueError:
+            return None
+
+        query_string = path[query_start + 1::]
+        query_list = query_string.split('&')
+
+        for q in query_list:
+            try:
+                key, value = q.split('=')
+            except ValueError:
+                return None
+
+            parsed_query[key] = value
+
+        return parsed_query
 
     def _parser_cookies(self, cookies: str) -> dict:
         parsed_cookies = {}
