@@ -44,7 +44,10 @@ class HTTPParser(object):
 
                     parsed_headers[name] = filtered_values
                 else:
-                    parsed_headers[name] = value
+                    if name == 'Cookie':
+                        self.result.cookies = self._parser_cookies(value)
+                    else:
+                        parsed_headers[name] = value
 
         return parsed_headers
 
