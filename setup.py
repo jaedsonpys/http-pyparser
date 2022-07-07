@@ -1,5 +1,5 @@
 from setuptools import setup
-from http_parser import __version__
+from http_pyparser import __version__
 
 with open('README.md', 'r') as reader:
     long_description = reader.read()
@@ -12,7 +12,7 @@ setup(
     long_description=long_description,
     long_description_content_type='text/markdown',
     version=__version__,
-    packages=['http-parser'],
+    packages=['http-pyparser'],
     keywords=['http', 'parser', 'python', 'request'],
     license='Apache 2.0',
     platforms=['any'],
