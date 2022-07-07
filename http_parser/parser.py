@@ -94,6 +94,7 @@ class HTTPParser(object):
         self.result.host = headers.get('Host')
         self.result.user_agent = headers.get('User-Agent')
         self.result.accept = headers.get('Accept')
+        self.result.headers = headers
 
         return self.result
 
