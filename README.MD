@@ -5,6 +5,7 @@ Parse HTTP messages ***simply and quickly*** with Python, with `http_parser` you
 - All headers from message;
 - Path and method;
 - Request body;
+- Get query string;
 - Cookies.
 
 All this *accessible* through an object.
