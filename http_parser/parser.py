@@ -6,6 +6,11 @@ class HTTPData(object):
         self.path = None
         self.status = None
         self.version = None
+        
+        self.host = None
+        self.user_agent = None
+        self.accept = None
+
         self.body = None
         self.headers = None
         self.cookies = None
