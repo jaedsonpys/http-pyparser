@@ -8,6 +8,17 @@ sys.path.insert(0, './')
 import bupytest
 import http_pyparser
 
+HTTP_MESSAGE = ('GET /api/user?email=test@gmail.com&age=18 HTTP/1.1\r\n'
+                'Host: 127.0.0.1:5200\r\n'
+                'Connection: keep-alive\r\n'
+                'sec-ch-ua-platform: "Linux"\r\n'
+                'User-Agent: Mozilla/5.0 (X11; Linux x86_64) '
+                'AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36\r\n'
+                'Accept: text/html,image/apng,*/*;q=0.8\r\n'
+                'Accept-Encoding: gzip, deflate, br\r\n'
+                'Accept-Language: pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7\r\n'
+                'Cookie: test_cookie=0123456789\r\n\r\n')
+
 
 class TestParser(bupytest.UnitTest):
     def __init__(self):
