@@ -20,7 +20,8 @@ class HTTPData(object):
     def __repr__(self) -> str:
         return (f'HTTPData(path={self.path}, status={self.status}, version={self.version}, '
                 f'host={self.host}, user_agent={self.user_agent}, accept={self.accept}, '
-                f'body={self.body}, headers={self.headers}, cookies={self.cookies})')
+                f'body={self.body}, headers={self.headers}, cookies={self.cookies}, '
+                f'query={self.query})')
 
 
 class HTTPParser(object):
