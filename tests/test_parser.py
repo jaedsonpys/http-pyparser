@@ -3,7 +3,7 @@
 
 import sys
 
-sys.path.insert('./')
+sys.path.insert(0, './')
 
 import bupytest
 import http_pyparser
