@@ -15,6 +15,7 @@ class HTTPData(object):
         self.body = None
         self.headers = None
         self.cookies = None
+        self.query = None
 
     def __repr__(self) -> str:
         return (f'HTTPData(path={self.path}, status={self.status}, version={self.version}, '
@@ -113,6 +114,7 @@ class HTTPParser(object):
         self.result.path = path
         self.result.version = version
 
+        self.result.query = self._parser_query_string(path)
         headers = self._parser_headers(msg_parts)
         
         self.result.host = headers.get('Host')
