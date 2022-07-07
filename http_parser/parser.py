@@ -96,3 +96,6 @@ class HTTPParser(object):
         self.result.accept = headers.get('Accept')
 
         return self.result
+
+    def __repr__(self) -> str:
+        return f'HTTPParser(result={self.result})'
