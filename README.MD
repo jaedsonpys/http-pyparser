@@ -1,6 +1,6 @@
 # HTTP Parser
 
-Parse HTTP messages ***simply and quickly*** with Python, with `http_parser` you can get:
+Parse HTTP messages ***simply and quickly*** with Python, with `http_pyparser` you can get:
 
 - All headers from message;
 - Path and method;
