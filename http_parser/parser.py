@@ -31,7 +31,7 @@ class HTTPParser(object):
 
         return parsed_cookies
 
-    def _parser_headers(self, headers: str) -> None:
+    def _parser_headers(self, headers: str) -> dict:
         parsed_headers = {}
 
         for header in headers:
