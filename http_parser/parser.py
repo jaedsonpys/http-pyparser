@@ -15,6 +15,17 @@ class HTTPParser(object):
     def __init__(self) -> None:
         self.result = HTTPData()
 
+    def _parser_cookies(self, cookies: str) -> dict:
+        parsed_cookies = {}
+        cookie_split = cookies.split(';')
+
+        for cookie in cookie_split:
+            cookie = cookie.strip()
+            key, value = cookie.split('=')
+            parsed_cookies[key] = value
+
+        return parsed_cookies
+
     def _parser_headers(self, headers: str) -> None:
         parsed_headers = {}
 
