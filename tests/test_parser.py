@@ -30,6 +30,7 @@ class TestParser(bupytest.UnitTest):
         
         self.assert_expected(parsed_http.cookies, {'test_cookie': '0123456789'})
         self.assert_expected(parsed_http.query, {'email': 'test@gmail.com', 'age': '18'})
+        self.assert_expected(parsed_http.path, '/api/user')
 
 
 if __name__ == '__main__':
