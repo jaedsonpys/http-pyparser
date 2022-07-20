@@ -25,6 +25,12 @@ class TestParser(bupytest.UnitTest):
         super().__init__()
         self.parser = http_pyparser.HTTPParser()
 
+    def test_parse_message(self):
+        parsed_http = self.parser.parser(HTTP_MESSAGE)
+        
+        self.assert_expected(parsed_http.cookies, {'test_cookie': '0123456789'})
+        self.assert_expected(parsed_http.query, {'email': 'test@gmail.com', 'age': '18'})
+
 
 if __name__ == '__main__':
     bupytest.this()
