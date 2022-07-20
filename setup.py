@@ -12,7 +12,7 @@ setup(
     long_description=long_description,
     long_description_content_type='text/markdown',
     version=__version__,
-    packages=['http-pyparser'],
+    packages=['http_pyparser'],
     keywords=['http', 'parser', 'python', 'request'],
     license='Apache 2.0',
     platforms=['any'],
