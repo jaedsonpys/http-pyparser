@@ -36,6 +36,7 @@ class HTTPParser(object):
         except ValueError:
             return None
 
+        self.result.path = path[0:query_start]
         query_string = path[query_start + 1::]
         query_list = query_string.split('&')
 
