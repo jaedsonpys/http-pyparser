@@ -16,7 +16,7 @@ setup(
     keywords=['http', 'parser', 'python', 'request'],
     license='Apache 2.0',
     platforms=['any'],
-    url='https://github.com/x07ex/http_parser',
+    url='https://github.com/jaedsonpys/http-pyparser',
     python_requires='>= 3.6',
     classifiers=[
         'Development Status :: 5 - Production/Stable',
@@ -24,7 +24,7 @@ setup(
         'Intended Audience :: Developers',
         'License :: OSI Approved :: Apache Software License',
         'Programming Language :: Python',
-        'Programming Language :: Python :: 3 Only',
+        'Programming Language :: Python :: 3',
         'Topic :: Internet',
         'Topic :: Utilities',
         'Topic :: Software Development :: Libraries :: Python Modules',
