@@ -5,3 +5,8 @@ test.py
 # python
 __pycache__
 venv
+
+# build
+*.egg-info
+build
+dist
