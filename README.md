@@ -1,4 +1,4 @@
-# HTTP Parser
+# HTTPPyparser
 
 Parse HTTP messages ***simply and quickly*** with Python, with `http_pyparser` you can get:
 
