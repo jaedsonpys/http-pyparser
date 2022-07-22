@@ -4,6 +4,8 @@ from typing import Union
 
 class HTTPData(object):
     def __init__(self) -> None:
+        self.real_path = None
+
         self.path = None
         self.method = None
         self.version = None
@@ -36,7 +38,9 @@ class HTTPParser(object):
         except ValueError:
             return None
 
+        self.result.real_path = path
         self.result.path = path[0:query_start]
+
         query_string = path[query_start + 1::]
         query_list = query_string.split('&')
 
