@@ -22,4 +22,4 @@ Version 2.0, January 2004
 http://www.apache.org/licenses/
 ```
 
-This project uses the `Apache 2.0` license, see the [LICENSE](https://github.com/x07ex/http_parser/blob/main/LICENSE) file for **more information**.
+This project uses the `Apache 2.0` license, see the [LICENSE](https://github.com/jaedsonpys/http-pyparser/blob/main/LICENSE) file for **more information**.
