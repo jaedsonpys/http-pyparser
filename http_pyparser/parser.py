@@ -38,7 +38,6 @@ class HTTPParser(object):
         except ValueError:
             return None
 
-        self.result.real_path = path
         self.result.path = path[0:query_start]
 
         query_string = path[query_start + 1::]
@@ -115,6 +114,7 @@ class HTTPParser(object):
             raise exceptions.InvalidHTTPMessageError('Invalid HTTP message')
 
         self.result.body = msg_parts[-1]
+        self.result.real_path = self.result.path
 
         self.result.method = method
         self.result.path = path
