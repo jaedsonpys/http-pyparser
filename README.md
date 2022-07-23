@@ -5,7 +5,7 @@ Parse HTTP messages ***simply and quickly*** with Python, with `http_pyparser` y
 - All headers from message;
 - Path and method;
 - Request body;
-- Get query string;
+- Get URL query;
 - Cookies.
 
 You can install `http-pyparser` with **pip** package manager:
