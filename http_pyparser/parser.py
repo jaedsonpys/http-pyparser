@@ -30,13 +30,13 @@ class HTTPParser(object):
     def __init__(self) -> None:
         self.result = HTTPData()
 
-    def _parser_query_string(self, path: str) -> Union[dict, None]:
+    def _parser_query_string(self, path: str) -> dict:
         parsed_query = {}
 
         try:
             query_start = path.index('?')
         except ValueError:
-            return None
+            return {}
 
         self.result.path = path[0:query_start]
 
