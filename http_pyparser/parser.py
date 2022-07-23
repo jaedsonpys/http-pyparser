@@ -20,10 +20,10 @@ class HTTPData(object):
         self.query = None
 
     def __repr__(self) -> str:
-        return (f'HTTPData(path={self.path}, method={self.method}, version={self.version}, '
-                f'host={self.host}, user_agent={self.user_agent}, accept={self.accept}, '
-                f'body={self.body}, headers={self.headers}, cookies={self.cookies}, '
-                f'query={self.query})')
+        return (f'HTTPData(real_path="{self.real_path}", path="{self.path}", method="{self.method}", '
+                f'version="{self.version}", host="{self.host}", user_agent="{self.user_agent}", '
+                f'accept="{self.accept}", body={self.body}, headers={self.headers}, '
+                f'cookies={self.cookies}, query={self.query})')
 
 
 class HTTPParser(object):
