@@ -114,12 +114,12 @@ class HTTPParser(object):
             raise exceptions.InvalidHTTPMessageError('Invalid HTTP message')
 
         self.result.body = msg_parts[-1]
-        self.result.real_path = self.result.path
 
         self.result.method = method
         self.result.path = path
         self.result.version = version
 
+        self.result.real_path = self.result.path
         self.result.query = self._parser_query_string(path)
         headers = self._parser_headers(msg_parts)
         
