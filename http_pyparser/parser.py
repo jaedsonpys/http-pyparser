@@ -72,7 +72,7 @@ class HTTPParser(object):
                 name, value = header.split(':', maxsplit=1)
                 value = value.strip()
 
-                if ';' in value and ',' in value:
+                if ',' in value or ';' in value:
                     sub_values = value.split(',')
                     filtered_values = []
 
