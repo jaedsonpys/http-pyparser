@@ -132,6 +132,7 @@ class HTTPParser(object):
 
         if cookies:
             self.result.cookies = self._parser_cookies(cookies)
+            self.result.headers.pop('Cookie')
 
         return self.result
 
