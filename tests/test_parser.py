@@ -31,8 +31,21 @@ class TestParser(bupytest.UnitTest):
         self.assert_expected(parsed_http.method, 'GET')
         self.assert_expected(parsed_http.version, 'HTTP/1.1')
 
+        self.assert_expected(parsed_http.body, None)
         self.assert_expected(parsed_http.cookies, {'test_cookie': '0123456789'})
         self.assert_expected(parsed_http.query, {'email': 'test@gmail.com', 'age': '18'})
+
+        # headers
+        self.assert_expected(
+            value=parsed_http.headers,
+            expected={
+                'Host': '127.0.0.1:5200',
+                'Connection': 'keep-alive',
+                'sec-ch-ua-platform': 'Linux',
+                'Accept-Encoding': ['gzip', 'deflate', 'br'],
+                'Content-Type': 'application/json'
+            }
+        )
 
 
 if __name__ == '__main__':
