@@ -82,10 +82,7 @@ class HTTPParser(object):
 
                     parsed_headers[name] = filtered_values
                 else:
-                    if name == 'Cookie':
-                        self.result.cookies = self._parser_cookies(value)
-                    else:
-                        parsed_headers[name] = value
+                    parsed_headers[name] = value
 
         return parsed_headers
 
@@ -127,12 +124,16 @@ class HTTPParser(object):
 
         self.result.real_path = self.result.path
         self.result.query = self._parser_query_string(path)
-        headers = self._parser_headers(msg_parts)
-        
-        self.result.host = headers.get('Host')
-        self.result.user_agent = headers.get('User-Agent')
-        self.result.accept = headers.get('Accept')
-        self.result.headers = headers
+        self.result.headers = self._parser_headers(msg_parts)
+
+        self.result.host = self.result.headers.get('Host')
+        self.result.user_agent = self.result.headers.get('User-Agent')
+        self.result.accept = self.result.headers.get('Accept')
+
+        cookies = self.result.headers.get('Cookie')
+
+        if cookies:
+            self.result.cookies = self._parser_cookies(cookies)
 
         return self.result
 
