@@ -113,7 +113,13 @@ class HTTPParser(object):
         except (ValueError, IndexError):
             raise exceptions.InvalidHTTPMessageError('Invalid HTTP message')
 
-        self.result.body = msg_parts[-1]
+        if not msg_parts[-1]:
+            self.result.body = None
+        else:
+            self.result.body = msg_parts[-1]
+
+        msg_parts.pop()
+        msg_parts.pop()
 
         self.result.method = method
         self.result.path = path
