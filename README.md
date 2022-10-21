@@ -1,14 +1,6 @@
 # HTTPPyparser
 
-Parse HTTP messages ***simply and quickly*** with Python, with `http_pyparser` you can get:
-
-- All headers from message;
-- Path and method;
-- Request body;
-- Get URL query;
-- Cookies.
-
-You can install `http-pyparser` with **pip** package manager:
+Format or create HTTP messages easily and simply using the `HTTPPyParser` library in Python! You can install `http-pyparser` with **pip** package manager:
 
 ```
 pip install http-pyparser
