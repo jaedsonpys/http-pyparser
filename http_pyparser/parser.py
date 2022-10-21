@@ -71,7 +71,7 @@ class HTTPParser(object):
                 name, value = header.split(':', maxsplit=1)
                 value = value.strip()
 
-                if ',' in value or ';' in value:
+                if ',' in value or ';' in value and name != 'Cookie':
                     sub_values = value.split(',')
                     filtered_values = []
 
