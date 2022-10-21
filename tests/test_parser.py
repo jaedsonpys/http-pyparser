@@ -45,5 +45,18 @@ class TestParser(bupytest.UnitTest):
         )
 
 
+class TestResponse(bupytest.UnitTest):
+    def __init__(self):
+        super().__init__()
+        self.response = http_pyparser.Response(
+            body='Hello, world!',
+            content_type='text/plain'
+        )
+
+        self.response.set_cookie('myAuth', '123')
+        self.response.set_cookie('myLocal', 'Brazil')
+        self.response.set_header('Server', 'MyServer')
+
+
 if __name__ == '__main__':
     bupytest.this()
