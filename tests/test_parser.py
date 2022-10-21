@@ -57,6 +57,16 @@ class TestResponse(bupytest.UnitTest):
         self.response.set_cookie('myLocal', 'Brazil')
         self.response.set_header('Server', 'MyServer')
 
+    def test_make_response(self):
+        response = http_pyparser.make_response(self.response)
+        expected_response = ('HTTP/1.1 200\r\n'
+                             'Content-Type: text/plain\r\n'
+                             'Server: MyServer\r\n'
+                             'Set-Cookie: myAuth=123; myLocal=Brazil\r\n\r\n'
+                             'Hello, world!')
+        
+        self.assert_expected(response, expected_response)
+
 
 if __name__ == '__main__':
     bupytest.this()
