@@ -1,6 +1,3 @@
-# This test uses BuPyTest (https://github.com/jaedsonpys/bupytest).
-# Follow the documentation to see how to run.
-
 import sys
 
 sys.path.insert(0, './')
