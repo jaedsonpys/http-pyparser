@@ -59,10 +59,10 @@ def make_response(response: Response) -> str:
     used_headers = list()
 
     # set default headers
+    http.append(f'HTTP/1.1 {response.status}')
+
     if response.headers.get('Server'):
         http.append(f'Server: {response.headers.get("Server")}')
-
-    http.append(f'HTTP/1.1 {response.status}')
     
     # if the body is a JSON
     if type(response.body) in (dict, list):
