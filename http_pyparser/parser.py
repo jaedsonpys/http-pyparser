@@ -1,5 +1,4 @@
 from . import exceptions
-from typing import Union
 
 
 class HTTPData(object):
