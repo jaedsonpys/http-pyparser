@@ -62,7 +62,8 @@ class TestResponse(bupytest.UnitTest):
         expected_response = ('HTTP/1.1 200\r\n'
                              'Content-Type: text/plain\r\n'
                              'Server: MyServer\r\n'
-                             'Set-Cookie: myAuth=123; myLocal=Brazil\r\n\r\n'
+                             'Set-Cookie: myAuth=123\r\n'
+                             'Set-Cookie: myLocal=Brazil\r\n\r\n'
                              'Hello, world!')
         
         self.assert_expected(response, expected_response)
