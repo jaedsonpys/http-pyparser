@@ -87,14 +87,8 @@ def make_response(response: Response) -> str:
             http.append(header_str)
 
     if response.cookies:
-        cookies_list = []
-
         for key, value in response.cookies.items():
-            cookie_str = f'{key}={value}'
-            cookies_list.append(cookie_str)
-
-        cookie_header = 'Set-Cookie: ' + '; '.join(cookies_list)
-        http.append(cookie_header)
+            http.append(f'Set-Cookie: {key}={value}')
 
     # defining the body of the response
     http.append('')
