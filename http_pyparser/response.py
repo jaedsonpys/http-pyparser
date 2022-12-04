@@ -27,12 +27,26 @@ class Response(object):
         self.status: int = status
         self.content_type: str = content_type
 
-        self.cookies: dict = {}
-        self.headers: dict = {}
+        self.cookies = []
+        self.headers = {}
 
-    def set_cookie(self, name: str, value: str) -> None:
+    def set_cookie(
+        self, name: str, value: str,
+        max_age: int = None, path: str = None,
+        secure: bool = False, http_only: bool = False
+    ) -> None:
         """Set a cookie"""
-        self.cookies[name] = value
+
+        self.cookies.append({
+            'name': name,
+            'value': value,
+            'attributes': {
+                'Max-Age': max_age,
+                'Path': path,
+                'Secure': secure,
+                'HttpOnly': http_only
+            }
+        })
 
     def set_header(self, name: str, value: str) -> None:
         """Set a header"""
