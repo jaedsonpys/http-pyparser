@@ -14,9 +14,10 @@ class HTTPData(object):
         self.accept = None
 
         self.body = None
-        self.headers = None
-        self.cookies = None
-        self.query = None
+
+        self.headers = {}
+        self.cookies = {}
+        self.query = {}
 
     def __repr__(self) -> str:
         return (f'HTTPData(real_path="{self.real_path}", path="{self.path}", method="{self.method}", '
