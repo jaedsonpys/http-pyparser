@@ -54,7 +54,7 @@ class TestResponse(bupytest.UnitTest):
         )
 
         self.response.set_cookie('myAuth', '123')
-        self.response.set_cookie('myLocal', 'Brazil')
+        self.response.set_cookie('myLocal', 'Brazil', secure=True, path='/echo')
         self.response.set_header('Server', 'MyServer')
 
     def test_make_response(self):
@@ -63,7 +63,7 @@ class TestResponse(bupytest.UnitTest):
                              'Content-Type: text/plain\r\n'
                              'Server: MyServer\r\n'
                              'Set-Cookie: myAuth=123\r\n'
-                             'Set-Cookie: myLocal=Brazil\r\n\r\n'
+                             'Set-Cookie: myLocal=Brazil; Path=/echo; Secure\r\n\r\n'
                              'Hello, world!')
         
         self.assert_expected(response, expected_response)
