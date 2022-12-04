@@ -101,8 +101,19 @@ def make_response(response: Response) -> str:
             http.append(header_str)
 
     if response.cookies:
-        for key, value in response.cookies.items():
-            http.append(f'Set-Cookie: {key}={value}')
+        for cookie in response.cookies:
+            name = cookie['name']
+            value = cookie['value']
+
+            cookie_header = f'Set-Cookie: {name}={value}; '
+
+            for attr_name, attr_value in cookie['attributes'].items():
+                if type(attr_value) == bool and attr_value:
+                    cookie_header += f'{attr_name}; '
+                elif attr_value is not False and attr_value is not None:
+                    cookie_header += f'{attr_name}={attr_value}; '
+
+            http.append(cookie_header[:-2])
 
     # defining the body of the response
     http.append('')
